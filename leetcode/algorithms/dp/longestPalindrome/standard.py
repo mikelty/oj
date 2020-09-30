@@ -1,3 +1,6 @@
+import unittest
+
+
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         if len(s)<2:
@@ -17,6 +20,18 @@ class Solution:
                 ans=s[i:j+1]
         return ans
 
-s="babad"
-sln_obj=Solution()
-print(sln_obj.longestPalindrome(s))
+
+class MyTest(unittest.TestCase):
+    def test_1(self):
+        s = "babad"
+        ans = "bab"
+        self.assertEqual(Solution().longestPalindrome(s),ans)
+
+    def test_2(self):
+        s = "cbbd"
+        ans = "bb"
+        self.assertEqual(Solution().longestPalindrome(s),ans)
+
+
+if __name__=='__main__':
+    unittest.main()
